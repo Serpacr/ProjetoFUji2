@@ -43,7 +43,12 @@ public class TarefaController {
         logger.info("Listando todas as tarefas");
         return ResponseEntity.ok(tarefaService.listarTodas());
     }
-
+    // Listar concluídas através da JPQL
+    @GetMapping("/concluidas")
+    public ResponseEntity<List<Tarefa>> listarConcluidas() {
+        logger.info("Listando tarefas concluídas");
+        return ResponseEntity.ok(tarefaService.listarTarefasConcluidas());
+    }
     //  Buscar por ID
     @GetMapping("/{id}")
     public ResponseEntity<Tarefa> buscarPorId(@PathVariable Long id) {
