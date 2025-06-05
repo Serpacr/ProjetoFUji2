@@ -28,7 +28,7 @@ public class TarefaService {
     private final JsonPlaceholderService jsonPlaceholderService;
     private final Validator validator;
 
-    // ✅ Importação de API externa
+    //  Importação de API externa
     public Tarefa importarTarefaDaApi(Long idTarefa) throws IOException, InterruptedException {
         logger.info("Iniciando importação da tarefa externa ID: {}", idTarefa);
 
@@ -71,9 +71,11 @@ public class TarefaService {
         return tarefa;
     }
 
-    // ✅ Métodos padrões
     public List<Tarefa> listarTodas() {
         return tarefaRepository.findAll();
+    }
+    public List<Tarefa> listarTarefasConcluidas() {
+        return tarefaRepository.buscarTarefasConcluidas();
     }
 
     public Tarefa buscarPorId(Long id) {
